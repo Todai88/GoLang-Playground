@@ -15,6 +15,7 @@ type Rectangle struct {
 
 type Shape interface {
 	area() float64
+	perimeter() float64
 }
 
 type MultiShape struct {
@@ -38,6 +39,13 @@ func (r Rectangle) area() float64 {
 	return r.x + r.y
 }
 
+func (c Circle) perimeter() float64 {
+	return (math.Pi * 2) * c.r
+}
+
+func (r Rectangle) perimeter() float64 {
+	return 2 * (r.x + r.y)
+}
 func totalAreas(shapes ...Shape) float64 {
 	var area float64
 	for _, s := range shapes {
@@ -64,4 +72,6 @@ func main() {
 	r = Rectangle{5, 5}
 	shapes := MultiShape{[]Shape{c, r}}
 	fmt.Println(shapes.area())
+	fmt.Println(c.perimeter())
+	fmt.Println(r.perimeter())
 }
