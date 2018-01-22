@@ -6,14 +6,14 @@ import (
 	"time"
 )
 
-func f(start, index int) {
-	if index == 10 || start == 10 {
+func f(indexName, indexNumber int) {
+	if indexName == 10 || indexNumber == 10 {
 		return
 	}
-	fmt.Println(start, ":", index)
+	fmt.Println(indexName, ":", indexNumber)
 	amt := time.Duration(rand.Intn(250))
 	time.Sleep(time.Millisecond * amt)
-	f(start, index+1)
+	f(indexName, indexNumber+1)
 }
 
 func main() {
