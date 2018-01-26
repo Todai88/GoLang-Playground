@@ -32,6 +32,9 @@ func (s sword) Wield() bool {
 	return true
 }
 
+func (s sword) String() string {
+	return fmt.Sprintf("%v deals %v damage", s.name, s.attack)
+}
 func wielder(w weapon) bool {
 	fmt.Println("Wielding...")
 	return w.Wield()
@@ -39,4 +42,5 @@ func wielder(w weapon) bool {
 func main() {
 	s := sword{attackMove: attackMove{attack: 10, defense: 5}, name: "bastard sword", twoHanded: true}
 	wielder(s)
+	fmt.Println(s)
 }
