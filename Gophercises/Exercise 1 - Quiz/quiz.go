@@ -10,6 +10,7 @@ import (
 	"os"
 )
 
+// a test
 type q struct {
 	question, answer string
 }
