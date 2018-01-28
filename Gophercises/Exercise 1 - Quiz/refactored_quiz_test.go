@@ -22,7 +22,7 @@ func Test_ImportQuizCSV(t *testing.T) {
 			[]quiz.Q{},
 		},
 		{
-			"2+2, 4",
+			"2+2,4",
 			[]quiz.Q{
 				{Question: "2+2", Answer: "4"},
 			},
@@ -42,7 +42,7 @@ func Test_ImportQuizCSV(t *testing.T) {
 			t.Errorf("ImportQuizCSV(%q) returned error: %v", tt.input, err)
 		}
 		if got, want := quizes, tt.quiz; !reflect.DeepEqual(got, want) {
-			t.Errorf("ImportQuizCSV(%q) = %v, wnated %v", tt.input, got, want)
+			t.Errorf("ImportQuizCSV(%q) = %v, wanted %v", tt.input, got, want)
 		}
 	}
 }
@@ -53,7 +53,7 @@ func Test_start_quiz(t *testing.T) {
 		{Question: "1+2", Answer: "3"},
 	}
 	input := "4\n2"
-	output := "> Correct!\n > Incorrect\n You had 1/2 correct answers!\n"
+	output := "> Correct!\n> Incorrect\nYou had 1/2 correct answers!\n"
 
 	r := strings.NewReader(input)
 	var buf bytes.Buffer
